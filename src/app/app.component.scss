@@ -1,0 +1,19 @@
+@import "../styles/variables";
+
+:host {
+  .menu {
+    display: grid;
+    grid-auto-flow: column;
+    margin: 0;
+    padding: 0;
+  }
+
+  .menu-link {
+    display: inline;
+    font-size: 1.4rem;
+  }
+
+  .menu-link:not(:first-child) {
+    margin-left: $margin-sm;
+  }
+}
