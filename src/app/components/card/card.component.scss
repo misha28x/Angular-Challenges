@@ -1,0 +1,49 @@
+@import "../../../styles";
+
+:host {
+  background-color: $white;
+  border-radius: $shape;
+  box-shadow: $shadow-base;
+  display: block;
+
+  .header {
+    border-top-left-radius: $shape;
+    border-top-right-radius: $shape;
+    color: $white;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: $padding-sm $padding-md;
+    background: $info-color;
+
+    .icon {
+      font-size: 1.1rem;
+    }
+
+    .title {
+      font-size: 1.35rem;
+      font-weight: normal;
+    }
+
+    .sub-title {
+      font-size: 1rem;
+      font-weight: 500;
+      opacity: 0.8;
+    }
+
+    .title,
+    .sub-title {
+      margin: 0;
+      color: $white;
+    }
+  }
+
+  .body {
+    padding: $padding-md;
+  }
+
+  .footer {
+    padding: 0 $padding-md $padding-md;
+  }
+}

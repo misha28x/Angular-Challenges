@@ -1,0 +1,20 @@
+@import "../../../styles";
+
+:host {
+  justify-content: flex-start;
+  background: $grey-200;
+  border-radius: $shape;
+  overflow: hidden;
+  display: flex;
+  height: 10px;
+  width: 100%;
+
+  .progress {
+    background: $primary-color;
+    height: 100%;
+    width: 100%;
+
+    transform-origin: left;
+    transition: transform 0.4s ease-in-out 0.1s;
+  }
+}

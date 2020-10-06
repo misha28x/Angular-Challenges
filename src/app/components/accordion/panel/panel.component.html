@@ -1,0 +1,12 @@
+<div class="panel-header">
+  <h5 class="panel-title">{{ title }}</h5>
+  <h6 class="panel-description">Description</h6>
+
+  <i class="panel-trigger" nz-icon nzType="caret-down"></i>
+</div>
+
+<div class="body-wrapper" [@openClose]="animationState">
+  <div class="panel-body">
+    <ng-content></ng-content>
+  </div>
+</div>

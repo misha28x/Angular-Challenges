@@ -1,0 +1,75 @@
+@import "../../../../styles";
+
+:host {
+  background: $white;
+  display: flex;
+  flex-direction: column;
+  box-shadow: $shadow-base;
+  border-radius: $shape;
+  overflow: hidden;
+  transition: margin 0.3s ease-in-out;
+
+  .panel-header {
+    align-items: baseline;
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: auto 1fr 20px;
+    padding: $padding-sm $padding-md;
+
+    .panel-description,
+    .panel-title {
+      margin: 0;
+    }
+
+    .panel-description {
+      opacity: 0.8;
+      font-weight: 500;
+    }
+
+    .panel-trigger {
+      color: $grey-400;
+      font-weight: 600;
+      transform-origin: center center;
+      transition: transform 0.2s ease-in-out;
+    }
+  }
+
+  .panel-body {
+    padding: $padding-md;
+    overflow: hidden;
+  }
+
+  &.open {
+    .panel-header .panel-trigger {
+      transition: transform 0.3s ease-in-out;
+      transform: rotate(-180deg);
+    }
+  }
+
+  .app-accordion & {
+    &.open {
+      margin: $margin-md 0;
+
+      &:first-child {
+        margin-top: 0;
+      }
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    &:not(.open) {
+      border-radius: 0;
+    }
+
+    &:first-of-type {
+      border-top-right-radius: $shape;
+      border-top-left-radius: $shape;
+    }
+
+    &:last-of-type {
+      border-bottom-right-radius: $shape;
+      border-bottom-left-radius: $shape;
+    }
+  }
+}

@@ -1,0 +1,14 @@
+<div *ngIf="icon || title || subTitle" class="header">
+  <i *ngIf="icon" class="icon" nz-icon [nzType]="icon" nzTheme="fill"></i>
+  <h3 *ngIf="title" class="title">{{ title }}</h3>
+  <h5 *ngIf="subTitle" class="sub-title">{{ subTitle }}</h5>
+</div>
+
+<div class="body">
+  <ng-content select="[card-body]"></ng-content>
+  <ng-content></ng-content>
+</div>
+
+<div class="footer">
+  <ng-content select="[card-footer]"></ng-content>
+</div>
