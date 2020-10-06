@@ -1,16 +1,4 @@
-@import "../../../styles";
-
 :host {
   display: flex;
   flex-direction: column;
-
-  :first-child {
-    border-top-left-radius: $shape;
-    border-top-right-radius: $shape;
-  }
-
-  :last-child {
-    border-bottom-left-radius: $shape;
-    border-bottom-right-radius: $shape;
-  }
 }

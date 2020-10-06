@@ -1,14 +1,16 @@
-@import './styles/variables';
+@import "tailwindcss/base";
+@import "tailwindcss/utilities";
+
+@import "./styles/variables";
 @import "./styles/typography";
 @import "./styles/font";
-
 
 * {
   scroll-behavior: smooth;
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
 }
 
 /* Ripple effect */
@@ -19,7 +21,8 @@
   &:hover {
     color: white;
     transition: background 0.8s;
-    background: #47a7f5 radial-gradient(circle, transparent 1%, $info-color 1%) center/15000%;
+    background: #47a7f5 radial-gradient(circle, transparent 1%, $info-color 1%)
+      center/15000%;
   }
 
   &:active {
@@ -36,7 +39,8 @@
   &:hover {
     color: white;
     transition: background 0.8s;
-    background: $primary-color radial-gradient(circle, transparent 1%, $primary-color) center/15000%;
+    background: $primary-color
+      radial-gradient(circle, transparent 1%, $primary-color) center/15000%;
   }
 
   &:active {
