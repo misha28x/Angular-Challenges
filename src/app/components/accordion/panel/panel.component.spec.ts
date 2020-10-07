@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PanelComponent } from './panel.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('PanelComponent', () => {
   let component: PanelComponent;
@@ -8,9 +9,9 @@ describe('PanelComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PanelComponent ]
-    })
-    .compileComponents();
+      imports: [BrowserAnimationsModule],
+      declarations: [PanelComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

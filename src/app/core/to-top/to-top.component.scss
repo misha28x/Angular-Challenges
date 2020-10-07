@@ -1,0 +1,31 @@
+@import "../../../styles/variables";
+
+:host {
+  color: $white;
+  display: block;
+  margin: $margin-lg;
+  position: fixed;
+  right: $margin-md;
+  bottom: $margin-md;
+  z-index: 1;
+
+  .scroll-btn {
+    border-radius: 50%;
+    background-color: $primary-color;
+    box-shadow: $shadow-base;
+    border: none;
+    height: 40px;
+    width: 40px;
+
+    visibility: hidden;
+    transform: scale(0);
+    transform-origin: center bottom;
+    transition: visibility 0.3s ease-in-out, transform 0.2s ease-in-out;
+  }
+
+  &.scrolled .scroll-btn {
+    transform: scale(1);
+    visibility: visible;
+    transition: visibility 0s ease-in-out, transform 0.2s ease-in-out;
+  }
+}

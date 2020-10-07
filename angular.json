@@ -20,6 +20,9 @@
             "customWebpackConfig": {
               "path": "webpack.config.js"
             },
+            "stylePreprocessorOptions": {
+              "includePaths": ["src/styles/"]
+            },
             "outputPath": "dist/challenges",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -80,7 +83,10 @@
         "serve": {
           "builder": "@angular-builders/custom-webpack:dev-server",
           "options": {
-            "browserTarget": "challenges:build"
+            "browserTarget": "challenges:build",
+            "stylePreprocessorOptions": {
+              "includePaths": ["src/styles/"]
+            }
           },
           "configurations": {
             "production": {
@@ -97,6 +103,9 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
+            "stylePreprocessorOptions": {
+              "includePaths": ["src/styles/"]
+            },
             "main": "src/test.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",

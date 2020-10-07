@@ -1,0 +1,12 @@
+<ng-container *ngFor="let star of stars">
+  <i
+    nz-icon
+    class="star"
+    [nzType]="'star'"
+    [nzTheme]="'fill'"
+    (click)="rate(star)"
+    (mouseleave)="resetHoverRating()"
+    (mouseenter)="setHoverRating(star)"
+    [class.active]="isActive(star)"
+  ></i>
+</ng-container>

@@ -1,4 +1,4 @@
-@import "../styles/variables";
+@import "variables";
 
 :host {
   .menu {
@@ -11,12 +11,22 @@
   .menu-link {
     display: inline;
     font-size: 1.4rem;
+
+    > a {
+      color: $white;
+      transition: opacity 0.2s ease-in-out;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
   }
 
   .menu-link:not(:first-child) {
     margin-left: $margin-sm;
   }
 }
+
 .container {
   padding: $padding-md;
 }

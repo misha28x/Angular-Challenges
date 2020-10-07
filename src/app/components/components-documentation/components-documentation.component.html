@@ -1,0 +1,27 @@
+<app-stack>
+  <app-card [title]="'Accordion'" [subTitle]="'Component'" [icon]="'home'">
+    <div card-body>
+      <app-accordion>
+        <app-accordion-panel [title]="'Panel'">
+          Some content
+        </app-accordion-panel>
+        <app-accordion-panel [title]="'Panel'">
+          Some content
+        </app-accordion-panel>
+        <app-accordion-panel [title]="'Panael'">
+          Some content
+        </app-accordion-panel>
+      </app-accordion>
+    </div>
+  </app-card>
+
+  <app-card [title]="'Progress Bar'">
+    <app-progress [progress]="progress"></app-progress>
+
+    <button class="bg-gray-400" (click)="updateProgress()">Update</button>
+  </app-card>
+
+  <app-card [title]="'Star Rating'">
+    <app-rating [rating]="4"></app-rating>
+  </app-card>
+</app-stack>

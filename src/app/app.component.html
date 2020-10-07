@@ -1,35 +1,17 @@
 <app-toolbar [title]="'100 Angular Challenge'">
   <nav class="nav">
     <ul class="menu">
-      <li class="menu-link">Components</li>
-      <li class="menu-link">Directives</li>
-      <li class="menu-link">Services</li>
-      <li class="menu-link">Pipes</li>
-      <li class="menu-link">Other</li>
+      <li class="menu-link"><a routerLink="components">Components</a></li>
+      <li class="menu-link"><a routerLink="directives">Directives</a></li>
+      <li class="menu-link"><a routerLink="services">Services</a></li>
+      <li class="menu-link"><a routerLink="pipes">Pipes</a></li>
+      <li class="menu-link"><a routerLink="other">Other</a></li>
     </ul>
   </nav>
 </app-toolbar>
 
-<div class="container">
-  <app-card [title]="'Accordion'" [subTitle]="'Component'" [icon]="'home'">
-    <div card-body>
-      <app-accordion>
-        <app-accordion-panel [title]="'Panel'">
-          Some content
-        </app-accordion-panel>
-        <app-accordion-panel [title]="'Panel'">
-          Some content
-        </app-accordion-panel>
-        <app-accordion-panel [title]="'Panel'">
-          Some content
-        </app-accordion-panel>
-      </app-accordion>
-    </div>
-  </app-card>
+<main class="container">
+  <router-outlet></router-outlet>
+</main>
 
-  <app-card [title]="'Progress Bar'">
-    <app-progress [progress]="progress"></app-progress>
-
-    <button class="mt-2" (click)="updateProgress()">Update</button>
-  </app-card>
-</div>
+<app-to-top></app-to-top>

@@ -1,9 +1,8 @@
-@import "tailwindcss/base";
-@import "tailwindcss/utilities";
+@import "../node_modules/tailwindcss/base.css";
+@import "../node_modules/tailwindcss/utilities.css";
 
-@import "./styles/variables";
-@import "./styles/typography";
-@import "./styles/font";
+@import "font";
+@import "typography";
 
 * {
   scroll-behavior: smooth;
@@ -11,41 +10,4 @@
   margin: 0;
   box-sizing: border-box;
   font-family: "Raleway", sans-serif;
-}
-
-/* Ripple effect */
-.ripple {
-  background-position: center;
-  transition: all 0.8s;
-
-  &:hover {
-    color: white;
-    transition: background 0.8s;
-    background: #47a7f5 radial-gradient(circle, transparent 1%, $info-color 1%)
-      center/15000%;
-  }
-
-  &:active {
-    background-color: #6eb9f7;
-    background-size: 100%;
-    transition: background 0s;
-  }
-}
-
-.ripple2 {
-  background-position: center;
-  transition: all 0.8s;
-
-  &:hover {
-    color: white;
-    transition: background 0.8s;
-    background: $primary-color
-      radial-gradient(circle, transparent 1%, $primary-color) center/15000%;
-  }
-
-  &:active {
-    background-color: green;
-    background-size: 100%;
-    transition: background 0s;
-  }
 }
