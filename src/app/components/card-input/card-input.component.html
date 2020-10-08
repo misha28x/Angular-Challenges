@@ -1,0 +1,18 @@
+<form class="card-form" [formGroup]="cardForm">
+  <ng-container
+    *ngFor="let control of controls; let i = index; let last = last"
+  >
+    <input
+      type="text"
+      maxlength="4"
+      class="card-input"
+      placeholder="0000"
+      (input)="handleInput(control, i)"
+      [formControl]="control"
+    />
+
+    <ng-container *ngIf="!last">
+      <span class="spacer">&ndash;</span>
+    </ng-container>
+  </ng-container>
+</form>

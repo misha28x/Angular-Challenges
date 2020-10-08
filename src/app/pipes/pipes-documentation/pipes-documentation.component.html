@@ -1,1 +1,32 @@
-<p>pipes-documentation works!</p>
+<app-stack>
+  <app-card [title]="'Truncate'" [subTitle]="'Pipe'">
+    <ng-container card-body>
+      <h5>Original string</h5>
+      {{ longString }}
+
+      <br />
+      <h5>Truncated string</h5>
+
+      {{ longString | truncate }}
+    </ng-container>
+  </app-card>
+
+  <app-card [title]="'Card Formatter'" [subTitle]="'Pipe'">
+    <ng-container card-body>
+      4024007106776304
+      <b>- Card number</b>
+
+      <br />
+      {{ "402~~07106776304" | cardFormatter }}
+      <b>- Invalid card number</b>
+
+      <br />
+      {{ "40240071067763" | cardFormatter }}
+      <b>- Too short card number</b>
+
+      <br />
+      {{ "4024007106776304" | cardFormatter }}
+      <b>- Formatted card number</b>
+    </ng-container>
+  </app-card>
+</app-stack>

@@ -1,0 +1,25 @@
+@import "variables";
+
+:host {
+  position: relative;
+
+  .card-form {
+    align-items: center;
+    border: 1px solid $grey-200;
+    border-radius: $shape / 2;
+    display: inline-flex;
+    padding: $padding-xss $padding-xs;
+  }
+
+  .card-input {
+    border: none;
+    background: transparent;
+    outline: none;
+    width: 40px;
+    padding: 0 $padding-xss;
+  }
+
+  .spacer {
+    color: $grey-200;
+  }
+}

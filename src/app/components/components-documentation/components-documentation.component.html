@@ -1,4 +1,8 @@
 <app-stack>
+  <app-card [title]="'Card input'">
+    <app-card-input></app-card-input>
+  </app-card>
+
   <app-card [title]="'Accordion'" [subTitle]="'Component'" [icon]="'home'">
     <div card-body>
       <app-accordion>
@@ -8,7 +12,7 @@
         <app-accordion-panel [title]="'Panel'">
           Some content
         </app-accordion-panel>
-        <app-accordion-panel [title]="'Panael'">
+        <app-accordion-panel [title]="'Panel'">
           Some content
         </app-accordion-panel>
       </app-accordion>
@@ -24,4 +28,10 @@
   <app-card [title]="'Star Rating'">
     <app-rating [rating]="4"></app-rating>
   </app-card>
+
+  <app-card [title]="'Loader'">
+    <button (click)="showLoader()">Show Loader</button>
+  </app-card>
 </app-stack>
+
+<app-loader [show]="isLoading"></app-loader>
