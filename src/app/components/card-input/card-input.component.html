@@ -1,14 +1,38 @@
 <form class="card-form" [formGroup]="cardForm">
+  <ng-container [ngSwitch]="cardType">
+    <img
+      *ngSwitchCase="'visa'"
+      src="/assets/svg/visa.svg"
+      alt="Visa Card"
+      class="card-icon"
+    />
+
+    <img
+      *ngSwitchCase="'master-card'"
+      src="/assets/svg/mc_symbol.svg"
+      alt="Master Card"
+      class="card-icon"
+    />
+
+    <img
+      *ngSwitchDefault
+      src="/assets/svg/credit-card.svg"
+      alt="Credit Card"
+      class="card-icon"
+    />
+  </ng-container>
+
   <ng-container
     *ngFor="let control of controls; let i = index; let last = last"
   >
     <input
-      type="text"
+      #part
       maxlength="4"
       class="card-input"
       placeholder="0000"
-      (input)="handleInput(control, i)"
       [formControl]="control"
+      (input)="handleInput(control, i)"
+      (keydown.backspace)="handleBackspace(control, i)"
     />
 
     <ng-container *ngIf="!last">

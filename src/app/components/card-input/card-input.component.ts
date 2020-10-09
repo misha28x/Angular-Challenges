@@ -1,14 +1,13 @@
 import {
-  AfterViewInit,
   ChangeDetectionStrategy,
-  Component,
-  Input,
-  QueryList,
   ViewChildren,
+  Component,
+  ElementRef,
+  QueryList,
+  Input,
 } from '@angular/core';
 
 import {
-  AbstractControl,
   FormArray,
   FormBuilder,
   FormControl,
@@ -16,36 +15,79 @@ import {
   Validators,
 } from '@angular/forms';
 
+import { CreditCardService } from './credit-card.service';
+import { CreditCardType } from './types/credit-card-type';
+
 @Component({
   selector: 'app-card-input',
   templateUrl: './card-input.component.html',
   styleUrls: ['./card-input.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CardInputComponent implements AfterViewInit {
-  @ViewChildren('input') parts: QueryList<HTMLInputElement>;
+export class CardInputComponent {
+  @ViewChildren('part') parts: QueryList<ElementRef<HTMLInputElement>>;
   @Input() readonly: boolean;
 
   cardForm: FormGroup;
+
+  get value(): string {
+    return this.controls.map((ctrl) => ctrl.value).join('');
+  }
 
   get controls(): FormControl[] {
     return (this.cardForm.get('parts') as FormArray).controls as FormControl[];
   }
 
-  constructor(private fb: FormBuilder) {
+  get cardType(): CreditCardType {
+    const cardNumber = this.value;
+    console.log(this.cardSv.getCardType(cardNumber));
+    return this.cardSv.getCardType(cardNumber);
+  }
+
+  constructor(private fb: FormBuilder, private cardSv: CreditCardService) {
     this.cardForm = this.getCardForm();
   }
 
-  ngAfterViewInit(): void {
-    this.parts.changes.subscribe(console.log);
+  handleInput(control: FormControl, index: number): void {
+    const isLast = index >= this.controls.length - 1;
+    if (isLast) {
+      return;
+    }
+
+    const nextControl = this.parts.toArray()[index + 1].nativeElement;
+
+    this.autoFocusNextControl(control, nextControl);
   }
 
-  handleInput(control: AbstractControl, index: number): void {
-    console.log(this.parts);
-    const isLast = index > this.controls.length;
-    const nextControl = isLast ? null : this.parts[index + 1];
+  handleBackspace(control: FormControl, index: number): void {
+    const isFirst = index === 0;
+    if (isFirst) {
+      return;
+    }
 
-    if (!control.errors && nextControl) {
+    const prevControl = this.parts.toArray()[index - 1];
+
+    this.autoFocusPrevControl(control, prevControl.nativeElement);
+  }
+
+  private autoFocusPrevControl(
+    control: FormControl,
+    prevControl: HTMLInputElement
+  ): void {
+    const isEmpty = control.value.length === 0;
+
+    if (isEmpty && prevControl) {
+      prevControl.focus();
+    }
+  }
+
+  private autoFocusNextControl(
+    control: FormControl,
+    nextControl: HTMLInputElement
+  ): void {
+    const isCompleted = control.value.length === 4;
+
+    if (isCompleted && nextControl) {
       nextControl.focus();
     }
   }
@@ -57,7 +99,7 @@ export class CardInputComponent implements AfterViewInit {
   private getPartsArray(): FormArray {
     return this.fb.array(
       ['', '', '', ''],
-      [Validators.minLength(3), Validators.required]
+      [Validators.min(4), Validators.required]
     );
   }
 }

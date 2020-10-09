@@ -2,12 +2,15 @@
 
 :host {
   position: relative;
+  display: inline-block;
 
   .card-form {
     align-items: center;
     border: 1px solid $grey-200;
     border-radius: $shape / 2;
-    display: inline-flex;
+    display: flex;
+    grid-template-columns: 20px repeat(3, minmax(20px, 1fr)) 1fr;
+    grid-auto-flow: column;
     padding: $padding-xss $padding-xs;
   }
 
@@ -21,5 +24,9 @@
 
   .spacer {
     color: $grey-200;
+  }
+
+  .card-icon {
+    width: 20px;
   }
 }
