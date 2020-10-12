@@ -31,7 +31,9 @@
       class="card-input"
       placeholder="0000"
       [formControl]="control"
+      [type]="getControlType(i)"
       (input)="handleInput(control, i)"
+      (mousedown)="$event.preventDefault()"
       (keydown.backspace)="handleBackspace(control, i)"
     />
 

@@ -1,4 +1,5 @@
 import { CreditCardService } from './credit-card.service';
+import { MC_CARD_EXAMPLE, VISA_CARD_EXAMPLE } from './consts/card.conts';
 
 describe('CreditCardService', () => {
   let service: CreditCardService;
@@ -12,17 +13,13 @@ describe('CreditCardService', () => {
   });
 
   it('should detect visa card', () => {
-    const visaCardNumber = '4111111111111111';
-
-    const result = service.getCardType(visaCardNumber);
+    const result = service.getCardType(VISA_CARD_EXAMPLE);
 
     expect(result).toBe('visa');
   });
 
   it('should detect master card card', () => {
-    const masterCard = '5555555555554444';
-
-    const result = service.getCardType(masterCard);
+    const result = service.getCardType(MC_CARD_EXAMPLE);
 
     expect(result).toBe('master-card');
   });

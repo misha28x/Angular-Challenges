@@ -1,6 +1,7 @@
 @import "variables";
 
 :host {
+  cursor: pointer;
   position: relative;
   display: inline-block;
 
@@ -17,9 +18,14 @@
   .card-input {
     border: none;
     background: transparent;
+    cursor: pointer;
     outline: none;
     width: 40px;
     padding: 0 $padding-xss;
+
+    &:read-only {
+      text-align: center;
+    }
   }
 
   .spacer {

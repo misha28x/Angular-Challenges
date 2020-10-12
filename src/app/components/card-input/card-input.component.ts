@@ -5,33 +5,53 @@ import {
   ElementRef,
   QueryList,
   Input,
+  HostListener,
 } from '@angular/core';
 
 import {
+  ControlValueAccessor,
   FormArray,
   FormBuilder,
   FormControl,
   FormGroup,
+  NG_VALUE_ACCESSOR,
   Validators,
 } from '@angular/forms';
 
 import { CreditCardService } from './credit-card.service';
 import { CreditCardType } from './types/credit-card-type';
+import { EMPTY_CARD_NUMBER } from './consts/card.conts';
 
 @Component({
   selector: 'app-card-input',
   templateUrl: './card-input.component.html',
   styleUrls: ['./card-input.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: CardInputComponent,
+      multi: true,
+    },
+  ],
 })
-export class CardInputComponent {
+export class CardInputComponent implements ControlValueAccessor {
   @ViewChildren('part') parts: QueryList<ElementRef<HTMLInputElement>>;
   @Input() readonly: boolean;
 
   cardForm: FormGroup;
 
+  onTouched = () => {};
+  onChange = () => {};
+
   get value(): string {
     return this.controls.map((ctrl) => ctrl.value).join('');
+  }
+
+  set value(cardNumber: string) {
+    const parts = cardNumber.match(/.{1,4}/g) || [];
+
+    parts.forEach((part = '0000', i) => this.controls[i].setValue(part));
   }
 
   get controls(): FormControl[] {
@@ -40,7 +60,6 @@ export class CardInputComponent {
 
   get cardType(): CreditCardType {
     const cardNumber = this.value;
-    console.log(this.cardSv.getCardType(cardNumber));
     return this.cardSv.getCardType(cardNumber);
   }
 
@@ -48,48 +67,91 @@ export class CardInputComponent {
     this.cardForm = this.getCardForm();
   }
 
+  getControlType(index: number): 'text' | 'password' {
+    if (!this.readonly || index > 2) {
+      return 'text';
+    }
+
+    return 'password';
+  }
+
+  writeValue(val: string): void {
+    this.value = val;
+  }
+
+  registerOnChange(fn: any): void {
+    this.onChange = fn;
+  }
+
+  registerOnTouched(fn: any): void {
+    this.onTouched = fn;
+  }
+
+  @HostListener('click', ['$event'])
+  onContainerClick(): void {
+    this.autoFocusControl();
+  }
+
+  private autoFocusControl(): void {
+    if (this.isNotComplete(this.controls[0].value)) {
+      this.focusPart(0);
+    } else if (this.isNotComplete(this.controls[1].value)) {
+      this.focusPart(1);
+    } else if (this.isNotComplete(this.controls[2].value)) {
+      this.focusPart(2);
+    } else {
+      this.focusPart(3);
+    }
+  }
+
   handleInput(control: FormControl, index: number): void {
     const isLast = index >= this.controls.length - 1;
+
     if (isLast) {
       return;
     }
 
-    const nextControl = this.parts.toArray()[index + 1].nativeElement;
-
-    this.autoFocusNextControl(control, nextControl);
+    this.autoFocusNextControl(control, index + 1);
   }
 
   handleBackspace(control: FormControl, index: number): void {
     const isFirst = index === 0;
+
     if (isFirst) {
       return;
     }
 
-    const prevControl = this.parts.toArray()[index - 1];
-
-    this.autoFocusPrevControl(control, prevControl.nativeElement);
+    this.autoFocusPrevControl(control, index - 1);
   }
 
   private autoFocusPrevControl(
     control: FormControl,
-    prevControl: HTMLInputElement
+    prevControl: number
   ): void {
     const isEmpty = control.value.length === 0;
 
-    if (isEmpty && prevControl) {
-      prevControl.focus();
+    if (isEmpty) {
+      this.focusPart(prevControl);
     }
   }
 
   private autoFocusNextControl(
     control: FormControl,
-    nextControl: HTMLInputElement
+    nextControl: number
   ): void {
     const isCompleted = control.value.length === 4;
 
-    if (isCompleted && nextControl) {
-      nextControl.focus();
+    if (isCompleted) {
+      this.focusPart(nextControl);
     }
+  }
+
+  private isNotComplete(controlValue: string): boolean {
+    return controlValue.length < 4;
+  }
+
+  private focusPart(index: number): void {
+    this.parts.toArray()[index].nativeElement.focus();
   }
 
   private getCardForm(): FormGroup {

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormControl } from "@angular/forms";
 
 @Component({
   selector: 'app-components-documentation',
@@ -10,6 +11,7 @@ export class ComponentsDocumentationComponent {
   title = 'challenges';
   progress = 25;
   rating = 3;
+  cardControl = new FormControl('1111222233334444');
 
   updateProgress(): void {
     this.progress = 80;
