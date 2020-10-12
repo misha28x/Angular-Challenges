@@ -6,9 +6,10 @@ import { Component, HostBinding, Input, OnInit } from '@angular/core';
   styleUrls: ['./loader.component.scss'],
 })
 export class LoaderComponent {
-  @HostBinding('class.hidden') get isHidden(): boolean {
-    return !this.show;
-  }
+  @Input()
+  @HostBinding('class.loading')
+  loading: boolean;
 
-  @Input() show = false;
+  @Input() type: 'circular' | 'text' = 'circular';
+  @Input() loadingText = 'Loading';
 }
