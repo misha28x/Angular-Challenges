@@ -1,1 +1,5 @@
-<p>directives-documentation works!</p>
+<app-stack>
+  <app-card [title]="'Debounce Time'" [subTitle]="'Directive'">
+    <button appDebounceClick (debounceClick)="clicked()">Debounced</button>
+  </app-card>
+</app-stack>

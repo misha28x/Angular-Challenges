@@ -1,0 +1,45 @@
+@import "variables";
+@import "mixins";
+
+$_handle-size: 1.4rem;
+$_handle-active-position: calc(#{$_handle-size * 1.5} - 1px);
+
+$_toggle-width: calc(#{($_handle-size * 2.5)} + 4px);
+
+:host {
+  border-radius: 50px;
+  background: $grey-200;
+  cursor: pointer;
+  padding: 2px;
+  overflow: visible;
+  display: inline-block;
+  width: $_toggle-width;
+  transition: background-color $animation-duration-slow $ease-in-out,
+    box-shadow $animation-duration-slow $ease-in-out;
+
+  .toggle-handler {
+    background: $white;
+    border-radius: 50%;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: transform $animation-duration-base $ease-in-out;
+
+    @include size($_handle-size);
+  }
+
+  &.toggled {
+    background-color: $primary-color;
+  }
+
+  &:hover:not(.toggled) {
+    box-shadow: none;
+  }
+
+  &.toggled .toggle-handler {
+    background: $white;
+    transition: transform $animation-duration-slow $ease-in-out;
+  }
+
+  &.toggled .toggle-handler {
+    transform: translateX($_handle-active-position);
+  }
+}

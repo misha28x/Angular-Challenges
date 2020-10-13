@@ -1,22 +1,26 @@
 <app-stack>
+  <app-card [title]="'Toggle'">
+    <app-toggle></app-toggle>
+  </app-card>
+
+  <app-card [title]="'Blockquote'">
+    <app-blockquote
+      [quote]="'Be yourself; everyone else is already taken.'"
+      [about]="'Author and poet'"
+      [author]="'Oscar Wilde'"
+    ></app-blockquote>
+  </app-card>
+
   <app-card [title]="'Card input'">
     <app-card-input [formControl]="cardControl"></app-card-input>
   </app-card>
 
   <app-card [title]="'Accordion'" [subTitle]="'Component'" [icon]="'home'">
-    <div card-body>
-      <app-accordion>
-        <app-accordion-panel [title]="'Panel'">
-          Some content
-        </app-accordion-panel>
-        <app-accordion-panel [title]="'Panel'">
-          Some content
-        </app-accordion-panel>
-        <app-accordion-panel [title]="'Panel'">
-          Some content
-        </app-accordion-panel>
-      </app-accordion>
-    </div>
+    <app-accordion>
+      <app-accordion-panel [title]="'Panel'">Some content</app-accordion-panel>
+      <app-accordion-panel [title]="'Panel'">Some content</app-accordion-panel>
+      <app-accordion-panel [title]="'Panel'">Some content</app-accordion-panel>
+    </app-accordion>
   </app-card>
 
   <app-card [title]="'Progress Bar'">

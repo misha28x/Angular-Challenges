@@ -15,6 +15,8 @@ import { ProgressComponent } from './progress/progress.component';
 import { PanelComponent } from './accordion/panel/panel.component';
 import { AccordionComponent } from './accordion/accordion.component';
 import { CardInputComponent } from './card-input/card-input.component';
+import { BlockquoteComponent } from './blockquote/blockquote.component';
+import { ToggleComponent } from './toggle/toggle.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,8 @@ import { CardInputComponent } from './card-input/card-input.component';
     LoaderComponent,
     ComponentsDocumentationComponent,
     CardInputComponent,
+    BlockquoteComponent,
+    ToggleComponent,
   ],
   imports: [
     SharedModule,

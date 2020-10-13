@@ -1,0 +1,53 @@
+@import "variables";
+
+:host {
+  padding: $padding-lg;
+  background: $primary-color;
+  border-left: 12px solid lighten($primary-color, 20);
+  position: relative;
+  color: $white;
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+
+  .quote-block {
+    padding-left: $padding-lg;
+    position: relative;
+    display: flex;
+
+    .quote {
+      color: $white;
+      margin: 0;
+      font-size: 1.3rem;
+      font-weight: lighter;
+      font-family: "Piazzolla", serif;
+    }
+
+    .quote-icon {
+      font-size: 5rem;
+      position: absolute;
+      left: -5px;
+      top: -30px;
+    }
+  }
+
+  .author-block {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    .author {
+      font-family: "Piazzolla", serif;
+      font-size: 1.3em;
+      font-weight: 600;
+    }
+
+    .about {
+      font-family: "Piazzolla", serif;
+      font-style: italic;
+      font-weight: 200;
+      font-size: 0.9em;
+      opacity: 0.8;
+    }
+  }
+}

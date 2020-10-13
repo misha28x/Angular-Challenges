@@ -1,4 +1,17 @@
 <app-stack>
+  <app-card [title]="'Filter by term'" [subTitle]="'Pipe'">
+    {{
+      ["Hello", "World", "hello World", "string", "and", "term"]
+        | filterByTerm: "hello"
+    }}
+  </app-card>
+
+  <app-card [title]="'Flatten'" [subTitle]="'pipe'">
+    {{ [1, 2, [3, 4, 5]] | json }} - Original Array
+    <br />
+    {{ [1, 2, [3, 4, 5]] | flatPipe }} - Flatten Array
+  </app-card>
+
   <app-card [title]="'Truncate'" [subTitle]="'Pipe'">
     <ng-container card-body>
       <h5>Original string</h5>
