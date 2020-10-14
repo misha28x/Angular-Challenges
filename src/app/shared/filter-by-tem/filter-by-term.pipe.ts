@@ -4,7 +4,7 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'filterByTerm',
 })
 export class FilterByTermPipe implements PipeTransform {
-  transform(values: string[], term: string): string[] {
+  transform(values: string[] = [], term: string): string[] {
     return values.filter((value) =>
       value.toLowerCase().includes(term.toLowerCase())
     );

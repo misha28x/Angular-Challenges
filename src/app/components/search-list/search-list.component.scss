@@ -1,0 +1,45 @@
+@import "variables";
+
+:host {
+  position: relative;
+  display: inline-block;
+
+  .results-dropdown {
+    background: $white;
+    box-shadow: $shadow-base;
+    border-radius: $shape;
+    padding: $padding-xs 0;
+    position: absolute;
+    width: 100%;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: visibility 0s, opacity $animation-duration-fast $ease-in-out,
+      transform $animation-duration-base $ease-in-out;
+
+    &.shown {
+      opacity: 1;
+      transform: translateY(10px);
+      visibility: visible;
+    }
+  }
+
+  .results-list {
+    list-style-type: none;
+    flex-direction: column;
+    display: flex;
+    margin: 0;
+    padding: 0;
+
+    .result-item {
+      cursor: pointer;
+      padding: $padding-xs $padding-sm;
+      transition: background-color $animation-duration-fast $ease-in-out;
+
+      &:hover {
+        background-color: rgba($blue-300, 0.2);
+      }
+    }
+  }
+}

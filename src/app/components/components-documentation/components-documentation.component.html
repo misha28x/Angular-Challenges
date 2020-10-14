@@ -1,4 +1,24 @@
 <app-stack>
+  <app-card [title]="'Search List'">
+    <app-search-list
+      [items]="['London', 'Moscow', 'New York', 'Madrid']"
+    ></app-search-list>
+  </app-card>
+
+  <app-card [title]="'Debounce Search'">
+    <app-debounce-search
+      (searchChange)="updateSearchTerm($event)"
+    ></app-debounce-search>
+    <br />
+    <br />
+    <div>
+      <span>
+        <b>Search term</b>
+        - {{ searchTerm }}
+      </span>
+    </div>
+  </app-card>
+
   <app-card [title]="'Toggle'">
     <app-toggle></app-toggle>
   </app-card>

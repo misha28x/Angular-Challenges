@@ -17,6 +17,10 @@ import { AccordionComponent } from './accordion/accordion.component';
 import { CardInputComponent } from './card-input/card-input.component';
 import { BlockquoteComponent } from './blockquote/blockquote.component';
 import { ToggleComponent } from './toggle/toggle.component';
+import { DebounceSearchComponent } from './debounce-search/debounce-search.component';
+import { SearchListComponent } from './search-list/search-list.component';
+
+import { FilterByTermPipe } from '../shared/filter-by-tem/filter-by-term.pipe';
 
 @NgModule({
   declarations: [
@@ -29,6 +33,8 @@ import { ToggleComponent } from './toggle/toggle.component';
     CardInputComponent,
     BlockquoteComponent,
     ToggleComponent,
+    DebounceSearchComponent,
+    SearchListComponent,
   ],
   imports: [
     SharedModule,

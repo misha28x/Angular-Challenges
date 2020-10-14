@@ -8,7 +8,7 @@ import { TruncatePipe } from './truncate/truncate.pipe';
 import { SharedModule } from '../shared/shared.module';
 import { CardFormatterPipe } from './card-formatter/card-formatter.pipe';
 import { FlatPipePipe } from './flat-pipe/flat-pipe.pipe';
-import { FilterByTermPipe } from './filter-by-tem/filter-by-term.pipe';
+import { FilterByTermPipe } from '../shared/filter-by-tem/filter-by-term.pipe';
 
 @NgModule({
   declarations: [
@@ -16,7 +16,6 @@ import { FilterByTermPipe } from './filter-by-tem/filter-by-term.pipe';
     PipesDocumentationComponent,
     CardFormatterPipe,
     FlatPipePipe,
-    FilterByTermPipe,
   ],
   imports: [
     CommonModule,

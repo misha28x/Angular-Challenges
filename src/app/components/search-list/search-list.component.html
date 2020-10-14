@@ -1,0 +1,16 @@
+<app-debounce-search
+  [placeholder]="'Search'"
+  (searchChange)="updateSearchTerm($event)"
+></app-debounce-search>
+
+<div
+  class="results-dropdown"
+  *ngIf="items | filterByTerm: searchTerm as filteredItems"
+  [class.shown]="filteredItems.length > 0 && showDropdown"
+>
+  <ul class="results-list">
+    <li class="result-item" *ngFor="let item of filteredItems">
+      {{ item }}
+    </li>
+  </ul>
+</div>

@@ -1,4 +1,5 @@
 @import "variables";
+@import "mixins";
 
 :host {
   cursor: pointer;
@@ -7,12 +8,12 @@
 
   .card-form {
     align-items: center;
-    border: 1px solid $grey-200;
-    border-radius: $shape / 2;
     display: flex;
-    grid-template-columns: 20px repeat(3, minmax(20px, 1fr)) 1fr;
     grid-auto-flow: column;
-    padding: $padding-xss $padding-xs;
+    grid-template-columns: 20px repeat(3, minmax(20px, 1fr)) 1fr;
+
+    @include input-border();
+    @include input-padding();
   }
 
   .card-input {

@@ -3,8 +3,9 @@ import { CommonModule } from '@angular/common';
 
 import { StackComponent } from './stack/stack.component';
 import { CardComponent } from './card/card.component';
+import { FilterByTermPipe } from './filter-by-tem/filter-by-term.pipe';
 
-const EXPORTED_DECLARATIONS = [StackComponent, CardComponent];
+const EXPORTED_DECLARATIONS = [StackComponent, CardComponent, FilterByTermPipe];
 
 @NgModule({
   declarations: EXPORTED_DECLARATIONS,
