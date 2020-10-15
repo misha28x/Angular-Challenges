@@ -13,6 +13,7 @@ export class ComponentsDocumentationComponent {
   isLoading = false;
   title = 'challenges';
   cardControl = new FormControl('1111222233334444');
+  counterControl = new FormControl(25);
 
   updateProgress(): void {
     this.progress = 80;

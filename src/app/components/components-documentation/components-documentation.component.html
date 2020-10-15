@@ -1,4 +1,8 @@
 <app-stack>
+  <app-card [title]="'Counter'">
+    <app-counter [formControl]="counterControl"></app-counter>
+  </app-card>
+
   <app-card [title]="'Search List'">
     <app-search-list
       [items]="['London', 'Moscow', 'New York', 'Madrid']"

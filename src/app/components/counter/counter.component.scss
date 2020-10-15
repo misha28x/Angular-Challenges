@@ -1,0 +1,72 @@
+@import "variables";
+@import "mixins";
+
+$_counter-width: 50px;
+$_counter-height: 30px;
+
+$_btn-size: $_counter-height;
+
+:host {
+  display: inline-grid;
+  grid-template-columns: 1fr $_counter-width 1fr;
+
+  .btn {
+    display: grid;
+    place-items: center;
+
+    color: $white;
+    cursor: pointer;
+    box-shadow: none;
+    border: none;
+    outline: none;
+    transition: background-color $animation-duration-base $ease-in-out;
+
+    @include size($_counter-height);
+
+    &:focus-within {
+      outline-color: $primary-color;
+      outline-width: 4px;
+      outline-offset: 2px;
+    }
+
+    &.minus-btn {
+      background: $red-400;
+
+      &:hover {
+        background: rgba($red-400, 0.7);
+      }
+    }
+
+    &.plus-btn {
+      background: $success-color;
+
+      &:hover {
+        background: rgba($success-color, 0.7);
+      }
+    }
+
+    &:first-child {
+      border-radius: $shape 0 0 $shape;
+    }
+
+    &:last-child {
+      border-radius: 0 $shape $shape 0;
+    }
+  }
+
+  .counter-input {
+    width: $_counter-width;
+    height: $_counter-height;
+    text-align: center;
+
+    @include input-base();
+
+    border-radius: 0;
+
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  }
+}

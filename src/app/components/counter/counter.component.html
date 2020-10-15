@@ -1,0 +1,15 @@
+<button class="btn minus-btn" (click)="decrement()">
+  <i nz-icon nzType="minus"></i>
+</button>
+
+<input
+  type="number"
+  class="counter-input"
+  [min]="minValue"
+  [max]="maxValue"
+  [formControl]="counterControl"
+/>
+
+<button class="btn plus-btn" (click)="increment()">
+  <i nz-icon nzType="plus"></i>
+</button>

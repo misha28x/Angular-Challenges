@@ -24,8 +24,12 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
   ],
 })
 export class ToggleComponent implements ControlValueAccessor {
-  @HostBinding('class.toggled') get isToggled(): boolean {
+  @HostBinding('class.toggled-on') get isOn(): boolean {
     return this._state;
+  }
+
+  @HostBinding('class.toggled-off') get isOf(): boolean {
+    return !this._state;
   }
 
   @Input()
@@ -33,7 +37,7 @@ export class ToggleComponent implements ControlValueAccessor {
     this._state = val;
   }
 
-  private _state: boolean;
+  private _state = false;
 
   @Output() valueChange = new EventEmitter();
 

@@ -2,7 +2,10 @@
 @import "mixins";
 
 $_handle-size: 1.4rem;
+$_handle-br: $_handle-size / 2;
+
 $_handle-active-position: calc(#{$_handle-size * 1.5} - 1px);
+$_handle-intermediate-position: calc(#{$_handle-size * 1.5} - 6px);
 
 $_toggle-width: calc(#{($_handle-size * 2.5)} + 4px);
 
@@ -19,27 +22,68 @@ $_toggle-width: calc(#{($_handle-size * 2.5)} + 4px);
 
   .toggle-handler {
     background: $white;
-    border-radius: 50%;
+    border-radius: 0.7rem;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-    transition: transform $animation-duration-base $ease-in-out;
+
+    transition: transform $animation-duration-slow $ease-in-out,
+      width $animation-duration-slow $ease-in-out;
 
     @include size($_handle-size);
   }
 
-  &.toggled {
-    background-color: $primary-color;
-  }
-
-  &:hover:not(.toggled) {
+  &:hover:not(.toggled-on) {
     box-shadow: none;
   }
 
-  &.toggled .toggle-handler {
-    background: $white;
-    transition: transform $animation-duration-slow $ease-in-out;
+  &.toggled-off .toggle-handler {
+    animation: turn-off 0.5s $ease-in-out;
+    animation-fill-mode: both;
   }
 
-  &.toggled .toggle-handler {
+  &.toggled-on {
+    background-color: $primary-color;
+  }
+
+  &.toggled-on .toggle-handler {
+    animation: activate 0.5s $ease-in-out;
+    animation-fill-mode: both;
+  }
+}
+
+@keyframes activate {
+  0% {
+    transform: translateX(0);
+    width: $_handle-size;
+  }
+  30% {
+    transform: translateX(0);
+    width: $_handle-size * 1.2;
+  }
+  70% {
+    transform: translateX($_handle-intermediate-position);
+    width: $_handle-size * 1.2;
+  }
+  100% {
     transform: translateX($_handle-active-position);
+    width: $_handle-size;
+  }
+}
+
+@keyframes turn-off {
+  0% {
+    transform: translateX($_handle-active-position);
+    width: $_handle-size;
+  }
+  30% {
+    transform: translateX($_handle-intermediate-position);
+    width: $_handle-size * 1.2;
+  }
+  70% {
+    transform: translateX(0);
+    width: $_handle-size * 1.2;
+  }
+  100% {
+    transform: translateX(0);
+    width: $_handle-size;
   }
 }
