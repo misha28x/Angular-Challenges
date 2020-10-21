@@ -1,0 +1,54 @@
+@import "variables";
+@import "mixins";
+
+$_page-item-size: 30px;
+$_page-item-shadow: $shadow-base;
+
+:host .pages-list {
+  display: flex;
+  gap: 10px;
+
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+
+  .item {
+    background: $white;
+    box-shadow: $_page-item-shadow;
+    border-radius: $shape;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    line-height: 1;
+    overflow: hidden;
+
+    @include size($_page-item-size);
+
+    &.active button {
+      color: $white;
+      background-color: $primary-color;
+    }
+
+    &.disabled button {
+      color: $grey-100;
+      background-color: $grey-200;
+      pointer-events: none;
+    }
+  }
+
+  .item button {
+    border: none;
+    outline: none;
+    color: $primary-color;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 100%;
+    width: 100%;
+  }
+}

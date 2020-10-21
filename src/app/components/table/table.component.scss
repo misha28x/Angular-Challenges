@@ -1,0 +1,32 @@
+@import "variables";
+
+$_row-border: 1px solid $grey-200;
+$_table-border: 1px solid $grey-300;
+
+:host {
+  table {
+    width: 100%;
+    border-radius: $shape;
+  }
+
+  tr {
+    border-bottom: $_row-border;
+
+    .th {
+      text-align: left;
+    }
+
+    .td,
+    .th {
+      padding: $padding-xss $padding-xs;
+    }
+  }
+
+  tbody tr {
+    transition: background-color $animation-duration-fast $ease-in-out;
+
+    &:hover {
+      background-color: $grey-100;
+    }
+  }
+}

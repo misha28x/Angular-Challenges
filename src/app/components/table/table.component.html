@@ -1,0 +1,17 @@
+<table>
+  <thead>
+    <tr>
+      <th class="th" *ngFor="let row of dataSource[0] | keyvalue">
+        {{ row.key | capitalize }}
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr class="row" *ngFor="let row of dataSource">
+      <td class="td" *ngFor="let col of row | keyvalue">
+        {{ col.value }}
+      </td>
+    </tr>
+  </tbody>
+</table>

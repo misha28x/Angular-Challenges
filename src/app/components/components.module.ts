@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { SharedModule } from '../shared/shared.module';
 import { NzIconModule } from 'ng-zorro-antd/icon';
@@ -20,8 +20,9 @@ import { ToggleComponent } from './toggle/toggle.component';
 import { DebounceSearchComponent } from './debounce-search/debounce-search.component';
 import { SearchListComponent } from './search-list/search-list.component';
 
-import { FilterByTermPipe } from '../shared/filter-by-tem/filter-by-term.pipe';
 import { CounterComponent } from './counter/counter.component';
+import { TableComponent } from './table/table.component';
+import { PaginatorComponent } from './paginator/paginator.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,9 @@ import { CounterComponent } from './counter/counter.component';
     ToggleComponent,
     DebounceSearchComponent,
     SearchListComponent,
+    PaginatorComponent,
     CounterComponent,
+    TableComponent,
   ],
   imports: [
     SharedModule,
@@ -44,9 +47,9 @@ import { CounterComponent } from './counter/counter.component';
     ReactiveFormsModule,
     NzIconModule.forChild([]),
     RouterModule.forChild([
-      { path: "", component: ComponentsDocumentationComponent }
+      { path: '', component: ComponentsDocumentationComponent },
     ]),
-    FormsModule
-  ]
+    FormsModule,
+  ],
 })
 export class ComponentsModule {}

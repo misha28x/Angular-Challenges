@@ -15,6 +15,13 @@ export class ComponentsDocumentationComponent {
   cardControl = new FormControl('1111222233334444');
   counterControl = new FormControl(25);
 
+  tableData = [
+    { name: 'Misha', position: 'FE Developer', experience: '2+' },
+    { name: 'Misha', position: 'FE Developer', experience: '2+' },
+    { name: 'Misha', position: 'FE Developer', experience: '2+' },
+    { name: 'Misha', position: 'FE Developer', experience: '2+' },
+    { name: 'Misha', position: 'FE Developer', experience: '2+' },
+  ];
   updateProgress(): void {
     this.progress = 80;
   }

@@ -57,11 +57,11 @@ $_toggle-width: calc(#{($_handle-size * 2.5)} + 4px);
   }
   30% {
     transform: translateX(0);
-    width: $_handle-size * 1.2;
+    width: $_handle-size * 1.1;
   }
   70% {
     transform: translateX($_handle-intermediate-position);
-    width: $_handle-size * 1.2;
+    width: $_handle-size * 1.1;
   }
   100% {
     transform: translateX($_handle-active-position);

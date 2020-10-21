@@ -3,7 +3,9 @@ import {
   HostBinding,
   Component,
   OnDestroy,
+  OnInit,
 } from '@angular/core';
+
 import { ViewportScroller } from '@angular/common';
 
 import { fromEvent, Subscription } from 'rxjs';
@@ -17,15 +19,17 @@ const SCROLL_THRESHOLD = 200;
   styleUrls: ['./to-top.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ToTopComponent implements OnDestroy {
+export class ToTopComponent implements OnInit, OnDestroy {
   @HostBinding('class.scrolled') get scrolledState(): boolean {
     return this.isScrolled;
   }
 
-  private scrollSub: Subscription;
   private isScrolled = false;
+  private scrollSub: Subscription;
 
-  constructor(private vs: ViewportScroller) {
+  constructor(private vs: ViewportScroller) {}
+
+  ngOnInit(): void {
     this.listenToScroll();
   }
 
@@ -43,7 +47,7 @@ export class ToTopComponent implements OnDestroy {
   private listenToScroll(): void {
     this.scrollSub = fromEvent(window, 'scroll')
       .pipe(
-        debounceTime(500),
+        debounceTime(300),
         startWith(this.vs.getScrollPosition()),
         map(() => this.vs.getScrollPosition()),
         map(([, offsetY]) => offsetY > SCROLL_THRESHOLD)

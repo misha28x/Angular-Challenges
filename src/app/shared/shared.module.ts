@@ -1,11 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { StackComponent } from './stack/stack.component';
-import { CardComponent } from './card/card.component';
-import { FilterByTermPipe } from './filter-by-tem/filter-by-term.pipe';
+import { StackComponent } from './components/stack/stack.component';
+import { CardComponent } from './components/card/card.component';
+import { FilterByTermPipe } from './pipes/filter-by-tem/filter-by-term.pipe';
+import { CapitalizePipe } from './pipes/capitalize/capitalize.pipe';
 
-const EXPORTED_DECLARATIONS = [StackComponent, CardComponent, FilterByTermPipe];
+const EXPORTED_DECLARATIONS = [
+  StackComponent,
+  CardComponent,
+  FilterByTermPipe,
+  CapitalizePipe,
+];
 
 @NgModule({
   declarations: EXPORTED_DECLARATIONS,

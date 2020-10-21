@@ -1,4 +1,12 @@
 <app-stack>
+  <app-card [title]="'Paginator'">
+    <app-paginator [total]="20"></app-paginator>
+  </app-card>
+
+  <app-card [title]="'Table'">
+    <app-table [dataSource]="tableData"></app-table>
+  </app-card>
+
   <app-card [title]="'Counter'">
     <app-counter [formControl]="counterControl"></app-counter>
   </app-card>

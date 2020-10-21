@@ -1,0 +1,21 @@
+<ul class="pages-list">
+  <li class="item prev-page" [class.disabled]="activePageIndex === 0">
+    <button (click)="onPrevPage()">
+      <i nz-icon nzType="double-left" nzTheme="outline"></i>
+    </button>
+  </li>
+
+  <ng-container *ngFor="let page of pageList">
+    <li class="item page" [class.active]="page === activePageIndex">
+      <button (click)="onPageClick(page)">{{ page + 1 }}</button>
+    </li>
+  </ng-container>
+
+  <li class="item next-page" [class.disabled]="activePageIndex === total - 1">
+    <button (click)="onNextPage()">
+      <i nz-icon nzType="double-right" nzTheme="outline"></i>
+    </button>
+  </li>
+</ul>
+
+<ng-container *ngIf="false">•••</ng-container>
