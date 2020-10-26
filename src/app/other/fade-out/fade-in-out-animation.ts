@@ -2,7 +2,7 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
 
 export type FadeOutState = 'in' | 'out';
 
-export const fadeOut = trigger('fadeOut', [
+export const fadeInOut = trigger('fadeInOut', [
   state(
     'out',
     style({

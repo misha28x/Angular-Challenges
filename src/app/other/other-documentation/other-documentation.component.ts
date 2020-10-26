@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { fadeOut, FadeOutState } from '../fade-out/fade-out-animation';
+import { fadeInOut, FadeOutState } from '../fade-out/fade-in-out-animation';
 
 @Component({
   selector: 'app-other-documentation',
   templateUrl: './other-documentation.component.html',
   styleUrls: ['./other-documentation.component.scss'],
-  animations: [fadeOut],
+  animations: [fadeInOut],
 })
 export class OtherDocumentationComponent {
   fadeOutState: FadeOutState = 'in';

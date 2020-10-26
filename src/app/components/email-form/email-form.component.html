@@ -1,1 +1,23 @@
-<p>email-form works!</p>
+<h2 class="form-title">Get in touch</h2>
+
+<form action="" [formGroup]="emailForm">
+  <app-stack>
+    <div class="form-row">
+      <div class="form-field">
+        <input formControlName="name" type="text" placeholder="Name" />
+      </div>
+
+      <div class="form-field">
+        <input formControlName="email" type="email" placeholder="Email" />
+      </div>
+    </div>
+
+    <div class="form-field">
+      <input formControlName="message" type="text" placeholder="Message" />
+    </div>
+
+    <div class="form-field align-end">
+      <button appRipple class="submit-button" type="submit">Submit</button>
+    </div>
+  </app-stack>
+</form>

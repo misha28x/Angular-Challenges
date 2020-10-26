@@ -1,11 +1,11 @@
 <app-stack>
   <app-card title="Fade In Out" subTitle="Animation">
     <div class="animation-container">
-      <div [@fadeOut]="fadeOutState">
+      <div [@fadeInOut]="fadeOutState">
         <span>Hello</span>
       </div>
 
-      <div [@fadeOut]="fadeOutState === 'in' ? 'out' : 'in'">
+      <div [@fadeInOut]="fadeOutState === 'in' ? 'out' : 'in'">
         <span>World</span>
       </div>
     </div>
