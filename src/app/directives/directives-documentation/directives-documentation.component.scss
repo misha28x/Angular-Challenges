@@ -1,0 +1,21 @@
+@import "variables";
+
+:host {
+  .example-button {
+    padding: $padding-xs $padding-sm;
+    background-color: $primary-color;
+    color: $white;
+
+    border: none;
+    outline: none;
+    border-radius: $shape;
+  }
+
+  .ripple-container {
+    height: 100px;
+    width: 200px;
+
+    background-color: $teal-400;
+    border-radius: $shape;
+  }
+}

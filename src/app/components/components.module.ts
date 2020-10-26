@@ -23,6 +23,13 @@ import { SearchListComponent } from './search-list/search-list.component';
 import { CounterComponent } from './counter/counter.component';
 import { TableComponent } from './table/table.component';
 import { PaginatorComponent } from './paginator/paginator.component';
+import { TabsComponent } from './tabs/tabs.component';
+import { TabComponent } from './tabs/tab/tab.component';
+import { TabBodyComponent } from './tabs/tab-body/tab-body.component';
+import { PortalModule } from '@angular/cdk/portal';
+import { TabHeaderComponent } from './tabs/tab-header/tab-header.component';
+import { DirectivesModule } from '../directives/directives.module';
+import { EmailFormComponent } from './email-form/email-form.component';
 
 @NgModule({
   declarations: [
@@ -40,16 +47,20 @@ import { PaginatorComponent } from './paginator/paginator.component';
     PaginatorComponent,
     CounterComponent,
     TableComponent,
+    TabsComponent,
+    TabComponent,
+    TabBodyComponent,
+    TabHeaderComponent,
+    EmailFormComponent,
   ],
   imports: [
     SharedModule,
     CommonModule,
     ReactiveFormsModule,
     NzIconModule.forChild([]),
-    RouterModule.forChild([
-      { path: '', component: ComponentsDocumentationComponent },
-    ]),
+    RouterModule.forChild([{ path: '', component: ComponentsDocumentationComponent }]),
     FormsModule,
+    PortalModule,
   ],
 })
 export class ComponentsModule {}

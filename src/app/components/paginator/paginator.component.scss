@@ -51,4 +51,10 @@ $_page-item-shadow: $shadow-base;
     height: 100%;
     width: 100%;
   }
+
+  .prev-page,
+  .next-page {
+    transition: background-color $animation-duration-base $ease-in-out,
+      color $animation-duration-base $ease-in-out;
+  }
 }

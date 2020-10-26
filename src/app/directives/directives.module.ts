@@ -13,9 +13,7 @@ import { DebounceClickDirective } from './debounce-click/debounce-click.directiv
   imports: [
     CommonModule,
     SharedModule,
-    RouterModule.forChild([
-      { path: '', component: DirectivesDocumentationComponent },
-    ]),
+    RouterModule.forChild([{ path: '', component: DirectivesDocumentationComponent }]),
   ],
 })
 export class DirectivesModule {}

@@ -1,0 +1,24 @@
+<app-tab-header>
+  <span
+    appRipple
+    class="tab-label"
+    (click)="handleClick(index)"
+    [class.tab-label-active]="selectedIndex === index"
+    *ngFor="let tab of tabs; let index = index"
+  >
+    {{ tab.label }}
+  </span>
+</app-tab-header>
+
+<div class="tabs-body-container" #wrapper>
+  <ng-container *ngFor="let tab of tabs; let index = index">
+    <app-tab-body
+      class="tab-body"
+      [content]="tab.content"
+      [position]="tab.position"
+      [class.tab-body-active]="selectedIndex === index"
+      (centeringStarted)="onCenteringStarted($event)"
+      (centeringDone)="onCenteringDone()"
+    ></app-tab-body>
+  </ng-container>
+</div>

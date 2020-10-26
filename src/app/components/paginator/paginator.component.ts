@@ -32,6 +32,14 @@ export class PaginatorComponent {
     );
   }
 
+  get isNextDisabled(): boolean {
+    return this.activePageIndex === this.total - 1;
+  }
+
+  get isPrevDisabled(): boolean {
+    return this.activePageIndex === 0;
+  }
+
   private pageSize = 5;
   private activePage = 0;
 

@@ -1,1 +1,15 @@
-<p>other-documentation works!</p>
+<app-stack>
+  <app-card title="Fade In Out" subTitle="Animation">
+    <div class="animation-container">
+      <div [@fadeOut]="fadeOutState">
+        <span>Hello</span>
+      </div>
+
+      <div [@fadeOut]="fadeOutState === 'in' ? 'out' : 'in'">
+        <span>World</span>
+      </div>
+    </div>
+
+    <button (click)="toggleAnimation()">Toggle Animation</button>
+  </app-card>
+</app-stack>

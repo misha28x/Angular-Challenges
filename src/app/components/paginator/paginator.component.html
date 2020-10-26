@@ -1,5 +1,5 @@
 <ul class="pages-list">
-  <li class="item prev-page" [class.disabled]="activePageIndex === 0">
+  <li class="item prev-page" [class.disabled]="isPrevDisabled">
     <button (click)="onPrevPage()">
       <i nz-icon nzType="double-left" nzTheme="outline"></i>
     </button>
@@ -11,7 +11,7 @@
     </li>
   </ng-container>
 
-  <li class="item next-page" [class.disabled]="activePageIndex === total - 1">
+  <li class="item next-page" [class.disabled]="isNextDisabled">
     <button (click)="onNextPage()">
       <i nz-icon nzType="double-right" nzTheme="outline"></i>
     </button>

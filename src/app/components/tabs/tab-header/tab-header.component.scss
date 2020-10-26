@@ -1,0 +1,33 @@
+@import "variables";
+
+$_border: 1px solid $grey-200;
+$_bar-height: 44px;
+
+.tab-header-container {
+  display: flex;
+  border-bottom: $_border;
+}
+
+.tab-label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0 $padding-sm;
+  height: $_bar-height;
+  border-radius: $shape $shape 0 0;
+  min-width: 160px;
+
+  cursor: pointer;
+  color: $grey-200;
+  transition: background-color $animation-duration-base $ease-in-out,
+    color $animation-duration-base $ease-in-out;
+
+  &.tab-label-active {
+    color: $black;
+  }
+
+  &:hover {
+    background-color: $grey-100;
+  }
+}

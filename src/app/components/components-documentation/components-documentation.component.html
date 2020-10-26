@@ -1,26 +1,50 @@
 <app-stack>
-  <app-card [title]="'Paginator'">
+  <app-card title="Tabs">
+    <app-tabs>
+      <app-tab label="Tab 1">
+        <app-blockquote
+          [quote]="'Be yourself; everyone else is already taken.'"
+          [about]="'Author and poet'"
+          [author]="'Oscar Wilde'"
+        ></app-blockquote>
+      </app-tab>
+
+      <app-tab label="Tab 2">
+        <app-blockquote
+          [quote]="
+            'Two things are infinite: the universe and human stupidity; and I\'m not sure about the universe.'
+          "
+          [about]="'Scientist'"
+          [author]="'Albert Einstein'"
+        ></app-blockquote>
+      </app-tab>
+
+      <app-tab label="Table">
+        <app-stack>
+          <app-table [dataSource]="tableData"></app-table>
+        </app-stack>
+      </app-tab>
+    </app-tabs>
+  </app-card>
+
+  <app-card title="Paginator">
     <app-paginator [total]="20"></app-paginator>
   </app-card>
 
-  <app-card [title]="'Table'">
+  <app-card title="Table">
     <app-table [dataSource]="tableData"></app-table>
   </app-card>
 
-  <app-card [title]="'Counter'">
+  <app-card title="Counter">
     <app-counter [formControl]="counterControl"></app-counter>
   </app-card>
 
-  <app-card [title]="'Search List'">
-    <app-search-list
-      [items]="['London', 'Moscow', 'New York', 'Madrid']"
-    ></app-search-list>
+  <app-card title="Search List">
+    <app-search-list [items]="['London', 'Moscow', 'New York', 'Madrid']"></app-search-list>
   </app-card>
 
-  <app-card [title]="'Debounce Search'">
-    <app-debounce-search
-      (searchChange)="updateSearchTerm($event)"
-    ></app-debounce-search>
+  <app-card title="Debounce Search">
+    <app-debounce-search (searchChange)="updateSearchTerm($event)"></app-debounce-search>
     <br />
     <br />
     <div>
@@ -31,11 +55,11 @@
     </div>
   </app-card>
 
-  <app-card [title]="'Toggle'">
+  <app-card title="Toggle">
     <app-toggle></app-toggle>
   </app-card>
 
-  <app-card [title]="'Blockquote'">
+  <app-card title="Blockquote">
     <app-blockquote
       [quote]="'Be yourself; everyone else is already taken.'"
       [about]="'Author and poet'"
@@ -43,29 +67,29 @@
     ></app-blockquote>
   </app-card>
 
-  <app-card [title]="'Card input'">
+  <app-card title="Card input">
     <app-card-input [formControl]="cardControl"></app-card-input>
   </app-card>
 
-  <app-card [title]="'Accordion'" [subTitle]="'Component'" [icon]="'home'">
+  <app-card title="Accordion" [icon]="'home'">
     <app-accordion>
-      <app-accordion-panel [title]="'Panel'">Some content</app-accordion-panel>
-      <app-accordion-panel [title]="'Panel'">Some content</app-accordion-panel>
-      <app-accordion-panel [title]="'Panel'">Some content</app-accordion-panel>
+      <app-accordion-panel title="Panel">Some content</app-accordion-panel>
+      <app-accordion-panel title="Panel">Some content</app-accordion-panel>
+      <app-accordion-panel title="Panel">Some content</app-accordion-panel>
     </app-accordion>
   </app-card>
 
-  <app-card [title]="'Progress Bar'">
+  <app-card title="Progress Bar">
     <app-progress [progress]="progress"></app-progress>
 
     <button class="bg-gray-400" (click)="updateProgress()">Update</button>
   </app-card>
 
-  <app-card [title]="'Star Rating'">
+  <app-card title="Star Rating">
     <app-rating [rating]="4"></app-rating>
   </app-card>
 
-  <app-card [title]="'Loader'">
+  <app-card title="Loader">
     <button (click)="showLoader()">Show Loader</button>
   </app-card>
 </app-stack>

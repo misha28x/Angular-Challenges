@@ -1,0 +1,29 @@
+@import "variables";
+@import "mixins";
+
+:host {
+  .tabs-body-container {
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    transition: height $animation-duration-slow $ease-in-out;
+
+    flex-basis: 100%;
+  }
+
+  .tab-body {
+    display: block;
+    overflow: hidden;
+
+    @include fill;
+
+    &.tab-body-active {
+      position: relative;
+      overflow-x: hidden;
+      overflow-y: auto;
+
+      z-index: 1;
+      flex-grow: 1;
+    }
+  }
+}

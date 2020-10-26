@@ -1,5 +1,15 @@
 <app-stack>
-  <app-card [title]="'Debounce Time'" [subTitle]="'Directive'">
+  <app-card title="Ripple" subTitle="Directive">
+    <app-stack>
+      <div>
+        <button appRipple class="example-button">Click me !</button>
+      </div>
+
+      <div appRipple class="ripple-container"></div>
+    </app-stack>
+  </app-card>
+
+  <app-card title="Debounce Time" subTitle="Directive">
     <button appDebounceClick (debounceClick)="clicked()">Debounced</button>
   </app-card>
 </app-stack>
